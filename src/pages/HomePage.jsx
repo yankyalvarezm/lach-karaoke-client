@@ -30,7 +30,7 @@ const HomePage = () => {
     timerActive,
     addSong,
     setAddSong,
-    socket
+    socket,
   } = useSongs();
   // console.log("Before rendering ActiveSession:", typeof setSessionId);
 
@@ -53,16 +53,15 @@ const HomePage = () => {
     // console.log("Estado actual de activeSession:", activeSession);
     // Considera si necesitas llamar a refreshQueueSongs aquí
   }, [fetchActiveSession]);
-  
+
   // Continúa con el resto del componente...
-  
 
   useEffect(() => {
     if (socket) {
       socket.emit("getIsRunning");
       socket.emit("getActiveSession");
     }
-  },[socket])
+  }, [socket]);
 
   return (
     <div>
@@ -86,7 +85,8 @@ const HomePage = () => {
                     activeSession={activeSession}
                   />
                 ) : (
-                  <YouTube hideControls={false} />
+                  // <YouTube hideControls={false} />
+                  <h1>No hay canciones en la cola</h1>
                 )}
 
                 <MySongs />
@@ -119,7 +119,7 @@ const HomePage = () => {
           )}
 
           {/* Active Session && Timer */}
-            {/* {console.log(`${user} && !${user.admin} && ${activeSession} && ${isRunning}`)} */}
+          {/* {console.log(`${user} && !${user.admin} && ${activeSession} && ${isRunning}`)} */}
           {user && !user.admin && activeSession && isRunning && (
             <div className="user-controls">
               {addSong ? (
@@ -128,7 +128,8 @@ const HomePage = () => {
                   activeSession={activeSession}
                 />
               ) : (
-                <YouTube />
+                // <YouTube />
+                <h1>No hay canciones en la cola</h1>
               )}
 
               <MySongs
