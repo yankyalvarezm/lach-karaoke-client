@@ -67,6 +67,24 @@ export const updateSongOnList = async (
   }
 };
 
+export const updateSongOnListByVideoId = async (
+  videoId,
+  { title, description, videoDuration, thumbnail } = {}
+) => {
+  try {
+    const body = { title, description, videoDuration, thumbnail };
+    const response = await axios.put(
+      `${route}/update-by-videoId/${videoId}`,
+      body,
+      config
+    );
+    return response.data;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+};
+
 export const deleteSongOnList = async (songId) => {
   try {
     const response = await axios.delete(`${route}/${songId}`, config);
@@ -76,15 +94,13 @@ export const deleteSongOnList = async (songId) => {
   }
 };
 
-
 export const cleanUpVideos = async () => {
-
   const config = {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + localStorage.getItem("authToken"),
-      },
-    };
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + localStorage.getItem("authToken"),
+    },
+  };
 
   try {
     const response = await axios.get(`${route}/cleanupVideos`, config);

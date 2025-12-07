@@ -17,6 +17,7 @@ const MySongs = ({ setSuccess }) => {
   } = useSongs();
   const [showDelete, setShowDelete] = useState(false);
 
+
   const handleShowDelete = (songId) => {
     setShowDelete((prevState) => ({
       ...prevState,
@@ -100,7 +101,7 @@ const MySongs = ({ setSuccess }) => {
               {!showDelete[song._id] ? (
                 <div className="agregar-queue-cola">
                   <p>{song.name}</p>
-                  <AddToQueue perfomId={song._id} setSuccess={setSuccess} />
+                  <AddToQueue perfomId={song._id} setSuccess={setSuccess} songInfo={song} />
                 </div>
               ) : (
                 <div className="agregar-queue-cola">
