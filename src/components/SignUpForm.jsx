@@ -14,7 +14,7 @@ const SignUpForm = () => {
   const [lastname, setLastName] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
   const { code } = useParams();
-  const [signUpCode, setSignUpCode] = useState(code);
+  const [signUpCode, setSignUpCode] = useState(code || "");
   const { setIsLoggedIn, setUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const errorMessageTimeoutRef = useRef(null);
@@ -72,7 +72,7 @@ const SignUpForm = () => {
             onChange={handleInputChange(setSignUpCode)}
             value={signUpCode}
             id="floatingPassword"
-            readOnly={signUpCode !== ""}
+            readOnly={Boolean(code)}
             className="signup-input form-control"
           />
           <label htmlFor="floatingPassword">ROOM CODE</label>
