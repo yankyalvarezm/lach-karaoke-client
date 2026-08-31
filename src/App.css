@@ -1,0 +1,378 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap");
+
+.harmonia-deactivated-page {
+  --harmonia-bg: #0a0a0b;
+  --harmonia-panel: #121211;
+  --harmonia-panel-2: #181716;
+  --harmonia-cream: #f5f0e4;
+  --harmonia-cream-muted: rgba(245, 240, 228, 0.68);
+  --harmonia-cream-soft: rgba(245, 240, 228, 0.12);
+  --harmonia-yellow: #f5c518;
+  --harmonia-orange: #e8551f;
+  --harmonia-blue: #2342db;
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  overflow-x: hidden;
+  padding: clamp(20px, 5vw, 64px);
+  color: var(--harmonia-cream);
+  background:
+    radial-gradient(circle at 18% 18%, rgba(232, 85, 31, 0.22), transparent 32%),
+    radial-gradient(circle at 86% 10%, rgba(35, 66, 219, 0.2), transparent 34%),
+    linear-gradient(90deg, rgba(245, 197, 24, 0.08) 1px, transparent 1px),
+    linear-gradient(rgba(245, 197, 24, 0.06) 1px, transparent 1px),
+    var(--harmonia-bg);
+  background-size: auto, auto, 48px 48px, 48px 48px, auto;
+  font-family: Archivo, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.harmonia-deactivated-page * {
+  box-sizing: border-box;
+}
+
+.harmonia-shell {
+  position: relative;
+  display: grid;
+  width: 100%;
+  max-width: 1080px;
+  min-height: min(680px, calc(100vh - 40px));
+  grid-template-columns: minmax(0, 1fr) 300px;
+  align-items: stretch;
+  overflow: hidden;
+  border: 1px solid rgba(245, 240, 228, 0.1);
+  border-radius: 28px;
+  background: linear-gradient(135deg, rgba(18, 18, 17, 0.94), rgba(10, 10, 11, 0.96));
+  box-shadow: 0 34px 90px -42px rgba(0, 0, 0, 0.9);
+}
+
+.harmonia-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(120deg, transparent 0 56%, rgba(245, 197, 24, 0.12) 56% 57%, transparent 57%),
+    linear-gradient(120deg, transparent 0 68%, rgba(232, 85, 31, 0.14) 68% 69%, transparent 69%);
+}
+
+.harmonia-brand {
+  position: absolute;
+  top: clamp(22px, 4vw, 34px);
+  left: clamp(22px, 4vw, 42px);
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.harmonia-brand p {
+  margin: 0;
+  color: var(--harmonia-cream);
+  font-family: "Space Mono", ui-monospace, Menlo, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.harmonia-mark {
+  position: relative;
+  display: grid;
+  width: 46px;
+  height: 46px;
+  place-items: center;
+  border: 1px solid rgba(245, 240, 228, 0.18);
+  border-radius: 12px;
+  background: #0a0a0b;
+}
+
+.harmonia-mark::before,
+.harmonia-mark::after {
+  content: "";
+  position: absolute;
+  top: 12px;
+  bottom: 12px;
+  width: 4px;
+  border-radius: 999px;
+  background: var(--harmonia-cream);
+}
+
+.harmonia-mark::before {
+  left: 13px;
+}
+
+.harmonia-mark::after {
+  right: 13px;
+}
+
+.harmonia-mark span {
+  position: relative;
+  z-index: 1;
+  width: 22px;
+  height: 14px;
+  border-bottom: 4px solid var(--harmonia-cream);
+  border-radius: 0 0 50% 50%;
+}
+
+.harmonia-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(90px, 10vw, 128px) clamp(24px, 7vw, 72px) clamp(34px, 6vw, 54px);
+}
+
+.harmonia-kicker {
+  width: fit-content;
+  margin: 0 0 22px;
+  border-radius: 999px;
+  padding: 8px 13px;
+  color: #141310;
+  background: var(--harmonia-yellow);
+  font-family: "Space Mono", ui-monospace, Menlo, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transform: rotate(-1.5deg);
+}
+
+.harmonia-content h1 {
+  max-width: 10.5ch;
+  margin: 0;
+  color: var(--harmonia-cream);
+  font-family: Anton, Archivo, sans-serif;
+  font-size: clamp(52px, 7vw, 92px);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 0.9;
+  text-transform: uppercase;
+  overflow-wrap: break-word;
+}
+
+.harmonia-content h1 span {
+  display: block;
+}
+
+.harmonia-message {
+  width: 100%;
+  max-width: min(58ch, 100%);
+  margin: clamp(18px, 2.6vw, 26px) 0 0;
+  color: var(--harmonia-cream-muted);
+  font-size: clamp(15px, 1.45vw, 18px);
+  font-weight: 500;
+  line-height: 1.55;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+.harmonia-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: clamp(24px, 4vw, 34px);
+}
+
+.harmonia-btn {
+  display: inline-flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 14px 20px;
+  font-size: 14px;
+  font-weight: 900;
+  line-height: 1.1;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.harmonia-btn:hover,
+.harmonia-btn:focus-visible {
+  transform: translateY(-2px);
+}
+
+.harmonia-btn-primary {
+  color: #141310;
+  background: var(--harmonia-yellow);
+  box-shadow: 0 18px 50px -26px var(--harmonia-yellow);
+}
+
+.harmonia-btn-primary:hover,
+.harmonia-btn-primary:focus-visible {
+  color: #141310;
+  background: #ffd230;
+}
+
+.harmonia-btn-secondary {
+  color: var(--harmonia-cream);
+  background: rgba(245, 240, 228, 0.08);
+  box-shadow: inset 0 0 0 1px rgba(245, 240, 228, 0.16);
+}
+
+.harmonia-btn-secondary:hover,
+.harmonia-btn-secondary:focus-visible {
+  color: var(--harmonia-cream);
+  background: rgba(245, 240, 228, 0.14);
+}
+
+.harmonia-info {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-left: 1px solid rgba(245, 240, 228, 0.08);
+  padding: clamp(28px, 4vw, 38px);
+  background:
+    linear-gradient(180deg, rgba(245, 197, 24, 0.1), rgba(232, 85, 31, 0.1)),
+    var(--harmonia-panel-2);
+}
+
+.harmonia-info::before {
+  content: "HARMONIA";
+  position: absolute;
+  top: 34px;
+  right: -12px;
+  color: rgba(245, 240, 228, 0.07);
+  font-family: Anton, Archivo, sans-serif;
+  font-size: 96px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 0.86;
+  writing-mode: vertical-rl;
+}
+
+.harmonia-info p {
+  position: relative;
+  margin: 0;
+}
+
+.harmonia-info-label {
+  color: var(--harmonia-yellow);
+  font-family: "Space Mono", ui-monospace, Menlo, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.harmonia-info p:not(.harmonia-info-label) {
+  margin-top: 12px;
+  color: var(--harmonia-cream);
+  font-size: clamp(20px, 2vw, 24px);
+  font-weight: 900;
+  line-height: 1;
+  overflow-wrap: normal;
+}
+
+.harmonia-info span {
+  position: relative;
+  display: block;
+  margin-top: 12px;
+  color: rgba(245, 240, 228, 0.56);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+@media (max-width: 840px) {
+  .harmonia-deactivated-page {
+    place-items: stretch;
+    padding: 0;
+  }
+
+  .harmonia-shell {
+    width: 100vw;
+    max-width: 100vw;
+    min-height: 100vh;
+    grid-template-columns: 1fr;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .harmonia-content {
+    padding-top: 112px;
+  }
+
+  .harmonia-content h1 {
+    max-width: 8.5ch;
+  }
+
+  .harmonia-info {
+    min-height: 190px;
+    border-top: 1px solid rgba(245, 240, 228, 0.08);
+    border-left: 0;
+  }
+
+  .harmonia-info::before {
+    top: 22px;
+    right: 18px;
+    font-size: 64px;
+    writing-mode: horizontal-tb;
+  }
+}
+
+@media (max-width: 560px) {
+  .harmonia-brand {
+    align-items: flex-start;
+  }
+
+  .harmonia-brand p {
+    max-width: 16ch;
+    line-height: 1.35;
+  }
+
+  .harmonia-content {
+    width: 100%;
+    padding: 116px 20px 38px;
+  }
+
+  .harmonia-content h1 {
+    width: calc(100vw - 40px);
+    max-width: calc(100vw - 40px);
+    font-size: clamp(40px, 12.4vw, 48px);
+  }
+
+  .harmonia-message,
+  .harmonia-actions,
+  .harmonia-btn {
+    width: calc(100vw - 60px);
+    max-width: 350px;
+  }
+
+  .harmonia-message {
+    max-width: min(32ch, calc(100vw - 40px));
+  }
+
+  .harmonia-actions {
+    flex-direction: column;
+  }
+
+  .harmonia-btn {
+    width: 100%;
+  }
+
+  .harmonia-info {
+    padding: 26px 20px 34px;
+  }
+
+  .harmonia-info p:not(.harmonia-info-label) {
+    font-size: 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .harmonia-btn {
+    transition: none;
+  }
+
+  .harmonia-btn:hover,
+  .harmonia-btn:focus-visible {
+    transform: none;
+  }
+}
